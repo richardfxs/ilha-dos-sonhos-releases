@@ -1,0 +1,521 @@
+{
+  "unit": "meter",
+  "coordinateSystem": "right-handed, Y up, Z forward",
+  "generatedBy": "node scripts/generate-assets.mjs",
+  "assetCount": 64,
+  "totalBytes": 6667832,
+  "assets": [
+    {
+      "id": "ferris-wheel",
+      "category": "attractions",
+      "file": "attractions/ferris-wheel.glb",
+      "bytes": 866344,
+      "radius": 3.4,
+      "animation": "ferris"
+    },
+    {
+      "id": "roller-coaster",
+      "category": "attractions",
+      "file": "attractions/roller-coaster.glb",
+      "bytes": 565144,
+      "radius": 5.3,
+      "animation": "coaster"
+    },
+    {
+      "id": "carousel",
+      "category": "attractions",
+      "file": "attractions/carousel.glb",
+      "bytes": 323180,
+      "radius": 3.3,
+      "animation": "carousel"
+    },
+    {
+      "id": "drop-tower",
+      "category": "attractions",
+      "file": "attractions/drop-tower.glb",
+      "bytes": 274964,
+      "radius": 2.6,
+      "animation": "drop"
+    },
+    {
+      "id": "lagoon-boats",
+      "category": "attractions",
+      "file": "attractions/lagoon-boats.glb",
+      "bytes": 109148,
+      "radius": 3.9,
+      "animation": "boats"
+    },
+    {
+      "id": "teacups",
+      "category": "attractions",
+      "file": "attractions/teacups.glb",
+      "bytes": 212148,
+      "radius": 3,
+      "animation": "teacups"
+    },
+    {
+      "id": "pendulum-ship",
+      "category": "attractions",
+      "file": "attractions/pendulum-ship.glb",
+      "bytes": 104656,
+      "radius": 3.6,
+      "animation": "pendulum"
+    },
+    {
+      "id": "island-gateway",
+      "category": "buildings",
+      "file": "buildings/island-gateway.glb",
+      "bytes": 164316,
+      "radius": 3.6,
+      "animation": null
+    },
+    {
+      "id": "restaurant",
+      "category": "buildings",
+      "file": "buildings/restaurant.glb",
+      "bytes": 99428,
+      "radius": 2.8,
+      "animation": null
+    },
+    {
+      "id": "kiosk",
+      "category": "buildings",
+      "file": "buildings/kiosk.glb",
+      "bytes": 89288,
+      "radius": 1.7,
+      "animation": null
+    },
+    {
+      "id": "souvenir-shop",
+      "category": "buildings",
+      "file": "buildings/souvenir-shop.glb",
+      "bytes": 66276,
+      "radius": 2.2,
+      "animation": null
+    },
+    {
+      "id": "ticket-booth",
+      "category": "buildings",
+      "file": "buildings/ticket-booth.glb",
+      "bytes": 43364,
+      "radius": 1.6,
+      "animation": null
+    },
+    {
+      "id": "restroom",
+      "category": "buildings",
+      "file": "buildings/restroom.glb",
+      "bytes": 37296,
+      "radius": 1.9,
+      "animation": null
+    },
+    {
+      "id": "staff-center",
+      "category": "buildings",
+      "file": "buildings/staff-center.glb",
+      "bytes": 41828,
+      "radius": 2.3,
+      "animation": null
+    },
+    {
+      "id": "lagoon-pier",
+      "category": "buildings",
+      "file": "buildings/lagoon-pier.glb",
+      "bytes": 135492,
+      "radius": 4.2,
+      "animation": "pier"
+    },
+    {
+      "id": "palm-tall",
+      "category": "environment",
+      "file": "environment/palm-tall.glb",
+      "bytes": 193324,
+      "radius": 1.1,
+      "animation": null
+    },
+    {
+      "id": "palm-fan",
+      "category": "environment",
+      "file": "environment/palm-fan.glb",
+      "bytes": 79656,
+      "radius": 1.15,
+      "animation": null
+    },
+    {
+      "id": "palm-royal",
+      "category": "environment",
+      "file": "environment/palm-royal.glb",
+      "bytes": 141576,
+      "radius": 1.2,
+      "animation": null
+    },
+    {
+      "id": "palm-cluster",
+      "category": "environment",
+      "file": "environment/palm-cluster.glb",
+      "bytes": 331376,
+      "radius": 1.4,
+      "animation": null
+    },
+    {
+      "id": "tropical-tree",
+      "category": "environment",
+      "file": "environment/tropical-tree.glb",
+      "bytes": 63728,
+      "radius": 1.35,
+      "animation": null
+    },
+    {
+      "id": "tropical-bush",
+      "category": "environment",
+      "file": "environment/tropical-bush.glb",
+      "bytes": 28780,
+      "radius": 0.9,
+      "animation": null
+    },
+    {
+      "id": "flower-bed",
+      "category": "environment",
+      "file": "environment/flower-bed.glb",
+      "bytes": 55388,
+      "radius": 1.25,
+      "animation": null
+    },
+    {
+      "id": "planter-pot",
+      "category": "environment",
+      "file": "environment/planter-pot.glb",
+      "bytes": 30624,
+      "radius": 0.65,
+      "animation": null
+    },
+    {
+      "id": "beach-umbrella",
+      "category": "environment",
+      "file": "environment/beach-umbrella.glb",
+      "bytes": 23172,
+      "radius": 1.5,
+      "animation": null
+    },
+    {
+      "id": "patio-table",
+      "category": "environment",
+      "file": "environment/patio-table.glb",
+      "bytes": 48168,
+      "radius": 1.45,
+      "animation": null
+    },
+    {
+      "id": "beach-props",
+      "category": "environment",
+      "file": "environment/beach-props.glb",
+      "bytes": 27624,
+      "radius": 1.1,
+      "animation": null
+    },
+    {
+      "id": "decorative-kiosk",
+      "category": "environment",
+      "file": "environment/decorative-kiosk.glb",
+      "bytes": 43472,
+      "radius": 1.35,
+      "animation": null
+    },
+    {
+      "id": "cruising-boat",
+      "category": "environment",
+      "file": "environment/cruising-boat.glb",
+      "bytes": 18680,
+      "radius": 1.8,
+      "animation": null
+    },
+    {
+      "id": "fountain",
+      "category": "environment",
+      "file": "environment/fountain.glb",
+      "bytes": 87976,
+      "radius": 2.4,
+      "animation": "fountain"
+    },
+    {
+      "id": "gazebo",
+      "category": "environment",
+      "file": "environment/gazebo.glb",
+      "bytes": 41660,
+      "radius": 2.2,
+      "animation": null
+    },
+    {
+      "id": "wooden-bridge",
+      "category": "environment",
+      "file": "environment/wooden-bridge.glb",
+      "bytes": 146664,
+      "radius": 3.2,
+      "animation": null
+    },
+    {
+      "id": "bench",
+      "category": "environment",
+      "file": "environment/bench.glb",
+      "bytes": 14604,
+      "radius": 0.8,
+      "animation": null
+    },
+    {
+      "id": "lamp-post",
+      "category": "environment",
+      "file": "environment/lamp-post.glb",
+      "bytes": 29636,
+      "radius": 0.5,
+      "animation": null
+    },
+    {
+      "id": "trash-bin",
+      "category": "environment",
+      "file": "environment/trash-bin.glb",
+      "bytes": 14288,
+      "radius": 0.45,
+      "animation": null
+    },
+    {
+      "id": "park-sign",
+      "category": "environment",
+      "file": "environment/park-sign.glb",
+      "bytes": 12032,
+      "radius": 0.65,
+      "animation": null
+    },
+    {
+      "id": "fence-segment",
+      "category": "environment",
+      "file": "environment/fence-segment.glb",
+      "bytes": 27536,
+      "radius": 0.95,
+      "animation": null
+    },
+    {
+      "id": "cliff-rock",
+      "category": "environment",
+      "file": "environment/cliff-rock.glb",
+      "bytes": 11768,
+      "radius": 1.5,
+      "animation": null
+    },
+    {
+      "id": "temple-ruins",
+      "category": "regions",
+      "file": "regions/temple-ruins.glb",
+      "bytes": 35784,
+      "radius": 3.2,
+      "animation": null
+    },
+    {
+      "id": "waterfall-cave",
+      "category": "regions",
+      "file": "regions/waterfall-cave.glb",
+      "bytes": 52876,
+      "radius": 3.6,
+      "animation": "waterfall"
+    },
+    {
+      "id": "suspension-bridge",
+      "category": "regions",
+      "file": "regions/suspension-bridge.glb",
+      "bytes": 211792,
+      "radius": 6.5,
+      "animation": null
+    },
+    {
+      "id": "zipline-adventure",
+      "category": "regions",
+      "file": "regions/zipline-adventure.glb",
+      "bytes": 60932,
+      "radius": 4.2,
+      "animation": "zipline"
+    },
+    {
+      "id": "water-slide",
+      "category": "regions",
+      "file": "regions/water-slide.glb",
+      "bytes": 239456,
+      "radius": 4.1,
+      "animation": "waterslide"
+    },
+    {
+      "id": "resort-pool",
+      "category": "regions",
+      "file": "regions/resort-pool.glb",
+      "bytes": 39436,
+      "radius": 4.2,
+      "animation": null
+    },
+    {
+      "id": "beach-club",
+      "category": "regions",
+      "file": "regions/beach-club.glb",
+      "bytes": 58796,
+      "radius": 3.3,
+      "animation": null
+    },
+    {
+      "id": "volcano-peak",
+      "category": "regions",
+      "file": "regions/volcano-peak.glb",
+      "bytes": 86736,
+      "radius": 7.4,
+      "animation": "volcano"
+    },
+    {
+      "id": "lava-coaster",
+      "category": "regions",
+      "file": "regions/lava-coaster.glb",
+      "bytes": 220968,
+      "radius": 5.8,
+      "animation": "lavacoaster"
+    },
+    {
+      "id": "obsidian-arch",
+      "category": "regions",
+      "file": "regions/obsidian-arch.glb",
+      "bytes": 28612,
+      "radius": 2.8,
+      "animation": null
+    },
+    {
+      "id": "maritime-terminal",
+      "category": "regions",
+      "file": "regions/maritime-terminal.glb",
+      "bytes": 62196,
+      "radius": 3.8,
+      "animation": null
+    },
+    {
+      "id": "harbor-hotel",
+      "category": "regions",
+      "file": "regions/harbor-hotel.glb",
+      "bytes": 54836,
+      "radius": 3.8,
+      "animation": null
+    },
+    {
+      "id": "marina-docks",
+      "category": "regions",
+      "file": "regions/marina-docks.glb",
+      "bytes": 48192,
+      "radius": 5.2,
+      "animation": null
+    },
+    {
+      "id": "market-plaza",
+      "category": "regions",
+      "file": "regions/market-plaza.glb",
+      "bytes": 67696,
+      "radius": 3.5,
+      "animation": null
+    },
+    {
+      "id": "tourist-ship",
+      "category": "regions",
+      "file": "regions/tourist-ship.glb",
+      "bytes": 75772,
+      "radius": 4.5,
+      "animation": "ship"
+    },
+    {
+      "id": "crystal-lagoon-ride",
+      "category": "regions",
+      "file": "regions/crystal-lagoon-ride.glb",
+      "bytes": 67064,
+      "radius": 4.6,
+      "animation": "boats"
+    },
+    {
+      "id": "enchanted-treehouse",
+      "category": "regions",
+      "file": "regions/enchanted-treehouse.glb",
+      "bytes": 65784,
+      "radius": 4.2,
+      "animation": null
+    },
+    {
+      "id": "light-pavilion",
+      "category": "regions",
+      "file": "regions/light-pavilion.glb",
+      "bytes": 92616,
+      "radius": 4.7,
+      "animation": "lightpavilion"
+    },
+    {
+      "id": "horizon-lighthouse",
+      "category": "regions",
+      "file": "regions/horizon-lighthouse.glb",
+      "bytes": 40676,
+      "radius": 4.2,
+      "animation": "lighthouse"
+    },
+    {
+      "id": "horizon-pier",
+      "category": "regions",
+      "file": "regions/horizon-pier.glb",
+      "bytes": 30384,
+      "radius": 5.5,
+      "animation": null
+    },
+    {
+      "id": "passenger-liner",
+      "category": "regions",
+      "file": "regions/passenger-liner.glb",
+      "bytes": 94624,
+      "radius": 5,
+      "animation": null
+    },
+    {
+      "id": "central-pier",
+      "category": "regions",
+      "file": "regions/central-pier.glb",
+      "bytes": 100864,
+      "radius": 5.5,
+      "animation": null
+    },
+    {
+      "id": "luminous-tower",
+      "category": "regions",
+      "file": "regions/luminous-tower.glb",
+      "bytes": 57196,
+      "radius": 4,
+      "animation": "skyring"
+    },
+    {
+      "id": "mini-shopping",
+      "category": "buildings",
+      "file": "buildings/mini-shopping.glb",
+      "bytes": 81456,
+      "radius": 4.2,
+      "animation": null
+    },
+    {
+      "id": "food-cart",
+      "category": "buildings",
+      "file": "buildings/food-cart.glb",
+      "bytes": 43952,
+      "radius": 1.2,
+      "animation": null
+    },
+    {
+      "id": "first-aid-post",
+      "category": "buildings",
+      "file": "buildings/first-aid-post.glb",
+      "bytes": 17928,
+      "radius": 2,
+      "animation": null
+    },
+    {
+      "id": "photo-spot",
+      "category": "environment",
+      "file": "environment/photo-spot.glb",
+      "bytes": 26604,
+      "radius": 1.4,
+      "animation": null
+    }
+  ]
+}
