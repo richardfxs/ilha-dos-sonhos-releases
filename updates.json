@@ -1,0 +1,8 @@
+{
+  "current": {
+    "version": "1.1.1",
+    "date": "25 de novembro de 2026",
+    "title": "Correção de Inicialização e Estabilidade",
+    "summary": "Corrigida a ordem de inicialização da câmera e das configurações gráficas na abertura do jogo (Web e Android), com recuperação segura de preferências, mantendo os novos HUDs mobile, presets até Ultra, atualizador nativo e novo ícone."
+  }
+}
