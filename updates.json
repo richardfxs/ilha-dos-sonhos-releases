@@ -1,0 +1,8 @@
+{
+  "current": {
+    "version": "1.0.1",
+    "date": "25 de novembro de 2026",
+    "title": "Tela Cheia Imersiva no Android",
+    "summary": "Implementado modo tela cheia imersiva real (immersive sticky) no aplicativo Android, ocultando barra de status e navegação automaticamente durante toda a partida, preservando a orientação horizontal e seus salvamentos."
+  }
+}

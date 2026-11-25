@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#071a2d" />
+    <title>Ilha dos Sonhos</title>
+    <script type="module" crossorigin src="./assets/index-BE5nc504.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/three--E0kk8qF.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-CbRx3mKT.css">
+  </head>
+  <body>
+    <div id="game" class="in-menu">
+      <canvas id="scene" aria-label="Visão 3D do arquipélago Ilha dos Sonhos"></canvas>
+
+      <!-- CINEMATIC INTRO & MAIN MENU OVERLAY -->
+      <section class="menu-layer mode-intro" id="menuLayer" aria-label="Menu principal de Ilha dos Sonhos">
+        <div class="menu-vignette" aria-hidden="true"></div>
+
+        <div class="menu-stage">
+          <div class="menu-title-block" id="menuTitleBlock">
+            <h1 class="menu-logo">ILHA DOS SONHOS</h1>
+            <div class="menu-logo-accent" aria-hidden="true"></div>
+          </div>
+
+          <nav class="main-menu-panel" id="mainMenuPanel" aria-label="Opções principais">
+            <button type="button" class="menu-btn primary" id="btnMenuContinue">
+              <span class="menu-btn-label">CONTINUAR</span>
+              <small id="continueMeta">Nenhuma partida salva</small>
+            </button>
+            <button type="button" class="menu-btn" id="btnMenuLoad">
+              <span class="menu-btn-label">CARREGAR JOGO</span>
+            </button>
+            <button type="button" class="menu-btn" id="btnMenuNew">
+              <span class="menu-btn-label">NOVO JOGO</span>
+            </button>
+            <button type="button" class="menu-btn" id="btnMenuSettings">
+              <span class="menu-btn-label">CONFIGURAÇÕES</span>
+            </button>
+          </nav>
+        </div>
+
+        <button type="button" class="intro-skip-btn" id="introSkipBtn">Pular Introdução</button>
+
+        <!-- SUB-PANELS (CARREGAR / NOVO JOGO / CONFIGURAÇÕES) -->
+        <aside class="menu-sub-overlay" id="menuSubOverlay" aria-hidden="true">
+          <div class="menu-sub-card">
+            <div class="modal-head">
+              <b id="menuSubTitle">CONFIGURAÇÕES</b>
+              <button type="button" class="panel-close" id="btnCloseMenuSub" aria-label="Voltar ao menu">
+                <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+              </button>
+            </div>
+            <div class="menu-sub-body" id="menuSubBody"></div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- 3D-PROJECTED FLOATING BALLOONS & LOCKED ISLAND INDICATORS -->
+      <div class="world-overlay" id="worldOverlay" aria-label="Indicadores do arquipélago"></div>
+
+      <!-- PARK NOTIFICATIONS (COMUNICADOS DO PARQUE) -->
+      <div class="park-notices" id="parkNotices" aria-live="polite" aria-label="Comunicados do parque"></div>
+
+      <!-- COMPACT INTERACTIVE TUTORIAL CARD -->
+      <aside class="tutorial-card" id="tutorialCard" aria-label="Guia inicial de Ilha dos Sonhos" aria-hidden="true"></aside>
+
+      <!-- TOP HUD -->
+      <header class="topbar" aria-label="Indicadores de administração">
+        <div class="topbar-main">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m12 2 2.55 6.3L21 11l-6.45 2.7L12 20l-2.55-6.3L3 11l6.45-2.7z"/></svg>
+            </span>
+            <div>
+              <b>ILHA DOS SONHOS</b>
+              <small>ADMINISTRAÇÃO DO ARQUIPÉLAGO</small>
+            </div>
+          </div>
+
+          <button class="clock-pill" id="clockPill" title="Clique para alternar velocidade do tempo (1x / 2x / Pausa)">
+            <span class="clock-icon" id="clockIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </span>
+            <div>
+              <strong id="clockTime">09:15</strong>
+              <small id="clockPeriod">Manhã • Dia 1</small>
+            </div>
+            <span class="clock-speed" id="clockSpeed">1x</span>
+          </button>
+
+          <div class="hud-metrics">
+            <div class="metric-card metric-profit">
+              <span class="metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17 10 11l4 3 6-8M14 6h6v6"/></svg></span>
+              <div><small>LUCRO / MIN</small><b>R$ <span id="profitRate">0</span></b></div>
+              <i class="live-dot" aria-hidden="true"></i>
+            </div>
+            <div class="metric-card">
+              <span class="metric-icon guest-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20v-1.2a5.5 5.5 0 0 1 11 0V20zM16 5.5a3 3 0 0 1 0 5.8M18 14a4.5 4.5 0 0 1 3 4.3V20h-3"/></svg></span>
+              <div><small>VISITANTES</small><b id="visitorCount">0</b></div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-icon mood-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.2c.8 1.2 2 1.8 3.5 1.8s2.7-.6 3.5-1.8M9 9.5h.01M15 9.5h.01"/></svg></span>
+              <div><small>SATISFAÇÃO</small><b><span id="satisfaction">90</span><small class="metric-unit">%</small></b></div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-icon island-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17c3-2 6-2 9 0s6 2 9 0"/><path d="M6 15c1-4 4-6 6-6s5 2 6 6"/></svg></span>
+              <div><small>ILHAS</small><b id="islandsCount">1 / 10</b></div>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="wallet" aria-label="Saldo disponível">
+              <span class="wallet-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.2 9.3c-.6-.7-1.4-1-2.5-1-1.4 0-2.3.7-2.3 1.7s.8 1.4 2.5 1.8 2.6.8 2.6 1.9-.9 1.8-2.5 1.8c-1.1 0-2.1-.4-2.9-1.3M12.8 6.8v10.4"/></svg></span>
+              <div>
+                <small>CAIXA</small>
+                <strong>R$ <span id="money">2.200</span></strong>
+              </div>
+            </div>
+            <button type="button" class="hud-gear-btn" id="inGameMenuBtn" title="Menu e Configurações (Esc)" aria-label="Abrir menu e configurações">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 .99-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51.99H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ISLAND NAVIGATION BAR -->
+        <div class="region-bar" id="regionBar" aria-label="Navegação entre ilhas"></div>
+      </header>
+
+      <!-- ATTRACTION / EVENT DETAIL MODAL -->
+      <aside class="detail-modal" id="entityModal" aria-hidden="true">
+        <div class="modal-head">
+          <div>
+            <span class="panel-kicker" id="emIsland">ILHOTA JARDIM</span>
+            <b id="emName">Xícaras Tropicais</b>
+          </div>
+          <button class="panel-close" id="closeEntityModal" aria-label="Fechar detalhes">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body" id="emBody"></div>
+      </aside>
+
+      <!-- SPECIAL BOAT EVENT MODAL -->
+      <aside class="detail-modal" id="boatModal" aria-hidden="true">
+        <div class="modal-head">
+          <div>
+            <span class="panel-kicker" id="bmBadge">EVENTO MARÍTIMO</span>
+            <b id="bmTitle">Barco Especial</b>
+          </div>
+          <button class="panel-close" id="closeBoatModal" aria-label="Fechar evento marítimo">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body" id="bmBody"></div>
+      </aside>
+
+      <!-- ISLAND UNLOCK MODAL -->
+      <aside class="detail-modal" id="islandModal" aria-hidden="true">
+        <div class="modal-head">
+          <div>
+            <span class="panel-kicker" id="imSubtitle">NOVA ILHA</span>
+            <b id="imTitle">Baía Aquática</b>
+          </div>
+          <button class="panel-close" id="closeIslandModal" aria-label="Fechar janela de ilha">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body" id="imBody"></div>
+      </aside>
+
+      <!-- RIGHT CAMERA TOOLS -->
+      <div class="right-tools" aria-label="Controles da câmera">
+        <button class="round-tool" id="zoomIn" title="Aumentar zoom" aria-label="Aumentar zoom">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button class="round-tool" id="zoomOut" title="Diminuir zoom" aria-label="Diminuir zoom">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
+        </button>
+        <button class="round-tool" id="rotateCamLeft" title="Girar câmera à esquerda" aria-label="Girar câmera à esquerda">
+          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="round-tool" id="rotateCamRight" title="Girar câmera à direita" aria-label="Girar câmera à direita">
+          <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+        </button>
+        <button class="round-tool" id="homeView" title="Visão geral do arquipélago" aria-label="Visão geral do arquipélago">
+          <svg viewBox="0 0 24 24"><path d="m3.5 10 8.5-7 8.5 7v10a1 1 0 0 1-1 1h-5.2v-6.5h-4.6V21H4.5a1 1 0 0 1-1-1z"/></svg>
+        </button>
+      </div>
+
+      <!-- ADMINISTRATIVE DRAWER PANEL -->
+      <section class="bottom-panel" id="adminPanel" aria-labelledby="panelTitle" aria-hidden="true">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-kicker" id="panelKicker">ADMINISTRAÇÃO</span>
+            <b id="panelTitle">Visão Geral</b>
+            <small id="panelSubtitle">Resumo operacional e expansão de Ilha dos Sonhos</small>
+          </div>
+          <button class="panel-close" id="closePanel" aria-label="Recolher painel">
+            <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="tab-content" id="overviewTab"></div>
+        <div class="tab-content" id="attractionsTab" hidden></div>
+        <div class="tab-content" id="staffTab" hidden></div>
+        <div class="tab-content" id="financesTab" hidden></div>
+        <div class="tab-content" id="missionsTab" hidden></div>
+      </section>
+
+      <!-- BOTTOM NAVIGATION BAR (5 PURE MANAGEMENT TABS) -->
+      <nav class="bottom-nav" id="bottomNav" aria-label="Menu de administração">
+        <button class="nav-item active" data-tab="overview" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Visão Geral</span>
+        </button>
+        <button class="nav-item" data-tab="attractions" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="7"/><circle cx="12" cy="10" r="1.3"/><path d="M12 3v14M5 10h14M8 21l4-4 4 4M7 21h10"/></svg>
+          <span>Atrações</span>
+          <em class="nav-badge" id="alertsBadge" hidden>0</em>
+        </button>
+        <button class="nav-item" data-tab="staff" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20v-1.5a6.5 6.5 0 0 1 13 0V20zM16 5a3.5 3.5 0 0 1 0 6.8M18 14a5 5 0 0 1 3.5 4.8V20h-4"/></svg>
+          <span>Equipe</span>
+        </button>
+        <button class="nav-item" data-tab="finances" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3M2 21h20"/></svg>
+          <span>Finanças</span>
+        </button>
+        <button class="nav-item" data-tab="missions" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Missões</span>
+          <em class="nav-badge" id="missionBadge" hidden>0</em>
+        </button>
+      </nav>
+
+      <!-- IN-GAME SETTINGS & CONTROL MENU -->
+      <aside class="ingame-menu-overlay" id="inGameMenuModal" aria-hidden="true" aria-label="Menu do jogo">
+        <div class="ingame-menu-card">
+          <div class="modal-head">
+            <div>
+              <span class="panel-kicker">ILHA DOS SONHOS</span>
+              <b id="inGameMenuTitle">Menu da Partida</b>
+            </div>
+            <button type="button" class="panel-close" id="closeInGameMenu" aria-label="Fechar menu">
+              <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+          <div class="ingame-menu-body" id="inGameMenuBody"></div>
+        </div>
+      </aside>
+
+      <!-- MANDATORY LANDSCAPE GUARD FOR TOUCH / MOBILE DEVICES -->
+      <div class="portrait-guard" id="portraitGuard" role="dialog" aria-label="Orientação horizontal obrigatória">
+        <div class="portrait-guard-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M18 10v4"/></svg>
+          <h2>Gire o aparelho para a horizontal</h2>
+          <p><strong>Ilha dos Sonhos</strong> foi projetado exclusivamente para ser jogado na orientação paisagem (horizontal).</p>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </body>
+</html>
