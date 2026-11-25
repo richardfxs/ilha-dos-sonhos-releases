@@ -1,0 +1,8 @@
+{
+  "current": {
+    "version": "1.2.0",
+    "date": "25 de novembro de 2026",
+    "title": "Otimização Profunda e Refinamento Gráfico",
+    "summary": "Eliminação de travamentos no celular (redução de 67% dos vértices do oceano, zero reflows no loop de renderização, animações com LOD por distância e resolução adaptativa suave), iluminação PBR mais rica, sombras mais nítidas e água cristalina aprimorada."
+  }
+}
