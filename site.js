@@ -1,4 +1,4 @@
-const DEFAULT_VERSION = '1.2.2';
+const DEFAULT_VERSION = '1.2.3';
 const APK_SAME_ORIGIN_URL = './downloads/ilha-dos-sonhos.apk';
 const META_SAME_ORIGIN_URL = './downloads/meta.json';
 const UPDATES_URL = './updates.json';

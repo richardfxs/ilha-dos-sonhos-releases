@@ -1,8 +1,8 @@
 {
   "current": {
-    "version": "1.2.2",
+    "version": "1.2.3",
     "date": "26 de novembro de 2026",
-    "title": "Correção do verificador de atualizações",
-    "summary": "Corrige a versão interna do aplicativo Android para 1.2.2 e elimina o aviso incorreto de atualização após instalar a versão anterior."
+    "title": "HUD e Loja aprimorados; atualizador Android corrigido",
+    "summary": "Traz o botão dedicado da Loja e melhorias no HUD, remove do navegador o aviso de atualização do APK e alinha a versão do site e do jogo Web com o Android."
   }
 }
