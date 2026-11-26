@@ -1,8 +1,8 @@
 {
   "current": {
-    "version": "1.2.3",
+    "version": "1.2.4",
     "date": "26 de novembro de 2026",
-    "title": "HUD e Loja aprimorados; atualizador Android corrigido",
-    "summary": "Traz o botão dedicado da Loja e melhorias no HUD, remove do navegador o aviso de atualização do APK e alinha a versão do site e do jogo Web com o Android."
+    "title": "Sincronização de saves entre dispositivos",
+    "summary": "Corrige a API de saves na nuvem e adiciona lista de partidas com opções para carregar e excluir saves locais ou da conta, preservando os dados existentes."
   }
 }
