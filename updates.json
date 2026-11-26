@@ -2,7 +2,7 @@
   "current": {
     "version": "1.2.2",
     "date": "26 de novembro de 2026",
-    "title": "Correção do verificador de atualizações — Android v1.2.2",
-    "summary": "Corrige a versão interna do aplicativo Android para 1.2.2 (código 107), eliminando o aviso incorreto de atualização após instalar a versão anterior. Assinatura digital oficial preservada e 64 modelos 3D verificados."
+    "title": "Correção do verificador de atualizações",
+    "summary": "Corrige a versão interna do aplicativo Android para 1.2.2 e elimina o aviso incorreto de atualização após instalar a versão anterior."
   }
 }
