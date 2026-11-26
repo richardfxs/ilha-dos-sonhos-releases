@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#071a2d" />
     <title>Ilha dos Sonhos</title>
-    <script type="module" crossorigin src="./assets/index-BGm4SbX4.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="module" crossorigin src="./assets/index-Bdig9bMg.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/three--E0kk8qF.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DYDDXvt_.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-D8w7q6gs.css">
   </head>
   <body>
     <div id="game" class="in-menu">
@@ -24,19 +25,25 @@
           </div>
 
           <nav class="main-menu-panel" id="mainMenuPanel" aria-label="Opções principais">
-            <button type="button" class="menu-btn primary" id="btnMenuContinue">
-              <span class="menu-btn-label">CONTINUAR</span>
-              <small id="continueMeta">Nenhuma partida salva</small>
-            </button>
-            <button type="button" class="menu-btn" id="btnMenuLoad">
-              <span class="menu-btn-label">CARREGAR JOGO</span>
-            </button>
-            <button type="button" class="menu-btn" id="btnMenuNew">
-              <span class="menu-btn-label">NOVO JOGO</span>
-            </button>
-            <button type="button" class="menu-btn" id="btnMenuSettings">
-              <span class="menu-btn-label">CONFIGURAÇÕES</span>
-            </button>
+            <div class="auth-menu-panel" id="authMenuPanel">
+              <b class="auth-menu-title">CONECTAR COM GOOGLE</b>
+              <div id="googleSignInContainer" class="google-signin-container"></div>
+              <button type="button" class="google-native-signin" id="googleWebSignInFallback" disabled>CONECTAR COM GOOGLE</button>
+              <button type="button" class="google-native-signin" id="googleNativeSignInBtn" hidden>CONECTAR COM GOOGLE</button>
+              <p class="auth-menu-status" id="authMenuStatus" aria-live="polite"></p>
+            </div>
+            <div class="authenticated-menu-panel" id="authenticatedMenuPanel" hidden>
+              <button type="button" class="menu-btn primary" id="btnMenuContinue" disabled>
+                <span class="menu-btn-label">CONTINUAR</span>
+                <small id="continueMeta">Verificando progresso na nuvem...</small>
+              </button>
+              <button type="button" class="menu-btn" id="btnMenuNew">
+                <span class="menu-btn-label">NOVO JOGO</span>
+              </button>
+              <button type="button" class="menu-btn" id="btnMenuSettings">
+                <span class="menu-btn-label">CONFIGURAÇÕES</span>
+              </button>
+            </div>
           </nav>
         </div>
 
@@ -116,6 +123,9 @@
                 <small>CAIXA</small>
                 <strong>R$ <span id="money">2.200</span></strong>
               </div>
+              <button type="button" class="wallet-shop-btn" id="openStoreBtn" title="Loja de Moedas" aria-label="Abrir Loja de Moedas">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
             </div>
             <button type="button" class="hud-gear-btn" id="inGameMenuBtn" title="Menu e Configurações (Esc)" aria-label="Abrir menu e configurações">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 .99-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51.99H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -167,6 +177,34 @@
           </button>
         </div>
         <div class="modal-body" id="imBody"></div>
+      </aside>
+
+      <!-- COIN STORE MODAL -->
+      <aside class="detail-modal store-modal" id="storeModal" aria-hidden="true" aria-label="Loja de Moedas">
+        <div class="modal-head">
+          <div>
+            <span class="panel-kicker">LOJA OFICIAL • MOEDA ÚNICA (R$)</span>
+            <b>Pacotes de Moedas</b>
+          </div>
+          <button type="button" class="panel-close" id="closeStoreModal" aria-label="Fechar loja de moedas">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body" id="storeModalBody"></div>
+      </aside>
+
+      <!-- VOLUNTARY REWARDED AD OFFER MODAL -->
+      <aside class="detail-modal ad-offer-modal" id="adOfferModal" aria-hidden="true" aria-label="Oportunidade voluntária de moedas">
+        <div class="modal-head">
+          <div>
+            <span class="panel-kicker">EMBARCAÇÃO PREMIADA</span>
+            <b>Bônus Voluntário de Moedas</b>
+          </div>
+          <button type="button" class="panel-close" id="closeAdOfferModal" aria-label="Fechar oferta de moedas">
+            <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body" id="adOfferModalBody"></div>
       </aside>
 
       <!-- RIGHT CAMERA TOOLS -->

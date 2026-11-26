@@ -1,0 +1,8 @@
+# ads.txt — Ilha dos Sonhos (https://ilhadossonhos.online)
+#
+# PREPARAÇÃO SEGURA:
+# Nenhum Publisher ID fictício foi inserido.
+# Após a aprovação oficial da conta no Google AdSense, substitua esta linha comentada
+# pelo registro oficial fornecido pelo painel do Google AdSense:
+#
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

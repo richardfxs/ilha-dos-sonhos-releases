@@ -609,3 +609,143 @@ button { font: inherit; color: inherit; }
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   .hero-backdrop img { transform: none !important; transition: none; }
 }
+
+
+/* ============================================================================
+   LEGAL / INFO PAGES, EDITORIAL AD SLOT PREPARATION & LGPD CONSENT MODAL
+   ============================================================================ */
+.legal-stage {
+  position: relative;
+  z-index: 3;
+  padding: 120px 0 76px;
+}
+.legal-wrap {
+  max-width: 820px;
+}
+.legal-stage h1 {
+  margin: 18px 0 8px;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.legal-updated {
+  margin: 0 0 26px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.legal-card {
+  padding: 28px 30px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(155deg, rgba(18, 15, 20, 0.9), rgba(10, 10, 13, 0.96));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+.legal-card h2 {
+  margin: 22px 0 8px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+}
+.legal-card h2:first-child { margin-top: 0; }
+.legal-card p,
+.legal-card li {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+.legal-card ul {
+  margin: 8px 0 12px;
+  padding-left: 20px;
+}
+.legal-card a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.ad-slot-editorial {
+  margin-top: 28px;
+  min-height: 90px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  background: rgba(12, 12, 16, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ad-slot-editorial[hidden] { display: none; }
+
+.footer-link-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+.footer-link-btn:hover { color: #fff; }
+
+.consent-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(4, 5, 8, 0.76);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.consent-modal[hidden] { display: none; }
+.consent-card {
+  width: min(500px, 100%);
+  padding: 24px;
+  border-radius: 20px;
+  background: #100f14;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.72);
+}
+.consent-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.consent-head strong { font-size: 16px; color: #fff; }
+.consent-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.consent-card p {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+.consent-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+.consent-btn {
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+}

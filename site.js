@@ -237,3 +237,100 @@ if (canvas && !prefersReducedMotion) {
     requestAnimationFrame(draw);
   }
 }
+
+
+// 6. LGPD Consent Preferences & Editorial AdSense Preparation (inactive until approved Publisher ID is set)
+const CONSENT_STORAGE_KEY = 'ilha-dos-sonhos-site-consent-v1';
+const ADSENSE_PREP_CONFIG = Object.freeze({
+  enabled: false,
+  publisherId: '', // NEVER invent a Publisher ID; populate only after official Google AdSense approval
+});
+
+function readConsentPrefs() {
+  try {
+    const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return {
+      essential: true,
+      advertising: Boolean(parsed.advertising),
+      updatedAt: Number(parsed.updatedAt) || Date.now(),
+    };
+  } catch {
+    return null;
+  }
+}
+
+function saveConsentPrefs(advertising) {
+  const prefs = { essential: true, advertising: Boolean(advertising), updatedAt: Date.now() };
+  try {
+    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(prefs));
+  } catch {}
+  return prefs;
+}
+
+function ensureConsentModal() {
+  let modal = document.querySelector('#siteConsentModal');
+  if (modal) return modal;
+
+  modal = document.createElement('aside');
+  modal.id = 'siteConsentModal';
+  modal.className = 'consent-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-label', 'Preferências de Privacidade e Cookies');
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="consent-card">
+      <div class="consent-head">
+        <strong>Preferências de Privacidade (LGPD)</strong>
+        <button type="button" class="consent-close" id="btnCloseConsent" aria-label="Fechar">✕</button>
+      </div>
+      <p>
+        Usamos armazenamento técnico essencial para preferências do site. Cookies de publicidade editorial (Google AdSense) permanecem desativados nesta etapa e só serão utilizados mediante sua autorização após aprovação oficial.
+      </p>
+      <label class="consent-toggle">
+        <input type="checkbox" checked disabled />
+        <span><strong>Essenciais (sempre ativo):</strong> funcionamento básico e preferências.</span>
+      </label>
+      <label class="consent-toggle">
+        <input type="checkbox" id="consentAdsCheckbox" />
+        <span><strong>Publicidade editorial (opcional):</strong> anúncios discretos no site institucional quando ativados.</span>
+      </label>
+      <div class="consent-actions">
+        <button type="button" class="btn-obsidian consent-btn" id="btnConsentEssentialOnly">Apenas essenciais</button>
+        <button type="button" class="btn-crimson consent-btn" id="btnConsentSave">Salvar escolha</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const close = () => { modal.hidden = true; };
+  modal.querySelector('#btnCloseConsent')?.addEventListener('click', close);
+  modal.querySelector('#btnConsentEssentialOnly')?.addEventListener('click', () => {
+    saveConsentPrefs(false);
+    close();
+  });
+  modal.querySelector('#btnConsentSave')?.addEventListener('click', () => {
+    const checked = Boolean(modal.querySelector('#consentAdsCheckbox')?.checked);
+    saveConsentPrefs(checked);
+    close();
+  });
+  return modal;
+}
+
+document.querySelectorAll('[data-open-consent]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const modal = ensureConsentModal();
+    const cur = readConsentPrefs();
+    const cb = modal.querySelector('#consentAdsCheckbox');
+    if (cb) cb.checked = Boolean(cur?.advertising);
+    modal.hidden = false;
+  });
+});
+
+// Auto-prompt consent banner ONLY when real AdSense is officially approved & configured
+if (ADSENSE_PREP_CONFIG.enabled && ADSENSE_PREP_CONFIG.publisherId && !readConsentPrefs()) {
+  const modal = ensureConsentModal();
+  modal.hidden = false;
+}

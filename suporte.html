@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#070709" />
+    <title>Suporte e Contato — Ilha dos Sonhos</title>
+    <meta name="description" content="Central de suporte, ajuda com instalação Android, saves e contato oficial de Ilha dos Sonhos." />
+    <link rel="canonical" href="https://ilhadossonhos.online/suporte.html" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/icon-512.png" />
+    <link rel="stylesheet" href="./site.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <canvas class="ambient-canvas" id="ambientParticles" aria-hidden="true"></canvas>
+
+    <header class="site-nav" id="siteNav">
+      <div class="container nav-inner">
+        <a class="site-brand" href="./index.html" aria-label="Ilha dos Sonhos — Página inicial">
+          <span class="brand-emblem" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m12 2 2.55 6.3L21 11l-6.45 2.7L12 20l-2.55-6.3L3 11l6.45-2.7z"/></svg>
+          </span>
+          <span>ILHA DOS SONHOS</span>
+        </a>
+
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+          <a href="./index.html">Início</a>
+          <a href="./download.html">Download Android</a>
+          <a href="./suporte.html" aria-current="page">Suporte</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="legal-stage" id="conteudo">
+      <div class="container legal-wrap">
+        <span class="version-pill">
+          <span class="pill-dot" aria-hidden="true"></span>
+          ATENDIMENTO OFICIAL
+        </span>
+
+        <h1>Suporte e Contato</h1>
+        <p class="legal-updated">Precisa de ajuda com o jogo, instalação do APK, saves ou questões de privacidade (LGPD)?</p>
+
+        <div class="dl-info-grid">
+          <article class="info-card">
+            <h2>Instalação e atualizações Android</h2>
+            <p>
+              Sempre baixe o APK exclusivamente em <a href="./download.html">ilhadossonhos.online/download.html</a>. Ao atualizar uma versão mais nova por cima da anterior, seu progresso permanece preservado.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h2>Carteira e compras futuras</h2>
+            <p>
+              A loja de moedas está em fase de preparação segura e ainda não realiza cobranças. Quando for ativada, todas as compras terão comprovante e recuperação vinculada à conta no servidor.
+            </p>
+          </article>
+        </div>
+
+        <article class="legal-card" style="margin-top: 18px;">
+          <h2>Canal oficial de contato</h2>
+          <p>
+            Para suporte técnico, relato de bugs, solicitações relacionadas à LGPD ou dúvidas sobre o aplicativo <strong>Ilha dos Sonhos</strong>, utilize o canal oficial definido pelo responsável do projeto:
+          </p>
+          <p>
+            <strong>E-mail oficial de suporte:</strong> <code>[PREENCHER E-MAIL OFICIAL DE SUPORTE ANTES DE PUBLICAR]</code>
+          </p>
+          <p>
+            <strong>Responsável pelo atendimento / LGPD:</strong> <code>[PREENCHER NOME OU RAZÃO SOCIAL DO RESPONSÁVEL ANTES DE PUBLICAR]</code>
+          </p>
+          <p>
+            Ao entrar em contato, informe a versão exibida no menu do jogo (ex.: <span data-app-version>v1.2.0</span>), a plataforma utilizada (Web ou Android) e uma breve descrição do ocorrido.
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span><strong>Ilha dos Sonhos</strong> • <span data-app-version>v1.2.0</span></span>
+        <nav class="footer-links" aria-label="Links institucionais">
+          <a href="./index.html">Início</a>
+          <a href="./sobre.html">Sobre</a>
+          <a href="./suporte.html" aria-current="page">Suporte</a>
+          <a href="./privacidade.html">Privacidade</a>
+          <button type="button" class="footer-link-btn" data-open-consent>Preferências de Privacidade</button>
+        </nav>
+      </div>
+    </footer>
+
+    <script type="module" src="./site.js"></script>
+  </body>
+</html>
